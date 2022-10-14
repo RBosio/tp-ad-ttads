@@ -6,9 +6,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
+    GraphQLModule.forRoot({
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      driver: ApolloDriver
+    }),
     ConfigModule.forRoot(), 
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
@@ -22,7 +27,8 @@ import { AppService } from './app.service';
         synchronize: Boolean(configService.get('DB_SYNC')),
       }),
       inject: [ConfigService],
-    })],
+    }),
+    ProductModule],
   controllers: [AppController],
   providers: [AppService],
 })
