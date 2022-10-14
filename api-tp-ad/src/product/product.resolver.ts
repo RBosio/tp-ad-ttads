@@ -23,14 +23,14 @@ export class ProductResolver {
 
   @Mutation(() => Product)
   async createProduct(
-    @Args('createProductInput') createProductInput: CreateProductInput
+    @Args('createProductInput', {type: () => CreateProductInput}) createProductInput: CreateProductInput
   ): Promise<Product> {
     return this.productService.create(createProductInput)
   }
   
   @Mutation(() => Product)
   async updateProduct(
-    @Args('updateProductInput') updateProductInput: UpdateProductInput
+    @Args('updateProductInput', {type: () => UpdateProductInput}) updateProductInput: UpdateProductInput
   ): Promise<Product> {
     return this.productService.update(updateProductInput)
   }

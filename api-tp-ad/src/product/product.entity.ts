@@ -1,5 +1,6 @@
 import { Field, Float, ID, Int, ObjectType } from "@nestjs/graphql";
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Category } from "src/category/category.entity";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @ObjectType()
 @Entity()
@@ -28,6 +29,14 @@ export class Product {
   @Column({length: 100, nullable: true})
   image!: string
 
+  @Field(() => Category)
+  @ManyToOne(() => Category, category => category.id, {
+    cascade: true,
+    nullable: false
+  })
+  @JoinColumn({name: 'categoryId'})
+  category!: number
+  
   @Field(() => Boolean)
   @Column({default: true})
   status!: boolean

@@ -10,11 +10,18 @@ export class ProductService {
   constructor(@InjectRepository(Product) private productRepository: Repository<Product>) {}
 
   async findAll(): Promise<Product[]> {
-    return await this.productRepository.find()
+    return await this.productRepository.find({
+      relations: {
+        category: true
+      }
+    })
   }
   
   async findOne(id: number): Promise<Product> {
     return await this.productRepository.findOneOrFail({
+      relations: {
+        category: true
+      },
       where: {
         id
       }
