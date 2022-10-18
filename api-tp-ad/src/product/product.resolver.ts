@@ -1,5 +1,5 @@
 import { Inject } from '@nestjs/common';
-import { Resolver, Query, ID, Args, Mutation, Int } from '@nestjs/graphql';
+import { Resolver, Query, Args, Mutation, Int } from '@nestjs/graphql';
 import { CreateProductInput } from './dto/create-product-input';
 import { UpdateProductInput } from './dto/update-product-input';
 import { Product } from './product.entity';

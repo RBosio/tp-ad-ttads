@@ -1,5 +1,5 @@
 import { Inject } from "@nestjs/common";
-import { Args, ID, Int, Mutation, Query, Resolver } from "@nestjs/graphql";
+import { Args, Int, Mutation, Query, Resolver } from "@nestjs/graphql";
 import { Category } from "./category.entity";
 import { CategoryService } from "./category.service";
 import { CreateCategoryInput } from "./dto/create-category-input";
