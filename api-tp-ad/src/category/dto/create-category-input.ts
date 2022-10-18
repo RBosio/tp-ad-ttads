@@ -1,7 +1,7 @@
-import { Field, Float, InputType, Int } from "@nestjs/graphql";
+import { Field, InputType } from "@nestjs/graphql";
 
 @InputType()
 export class CreateCategoryInput {
-  @Field(() => String, {nullable: true})
-  name?: string
+  @Field(() => String)
+  name!: string
 }
