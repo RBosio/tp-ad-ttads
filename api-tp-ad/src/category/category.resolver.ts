@@ -1,5 +1,6 @@
-import { Inject } from "@nestjs/common";
+import { Inject, UseGuards } from "@nestjs/common";
 import { Args, Int, Mutation, Query, Resolver } from "@nestjs/graphql";
+import { JwtAuthGuard } from "src/auth/jwt-auth.guard";
 import { Category } from "./category.entity";
 import { CategoryService } from "./category.service";
 import { CreateCategoryInput } from "./dto/create-category-input";
@@ -22,6 +23,7 @@ export class CategoryResolver {
   }
 
   @Mutation(() => Category)
+  @UseGuards(JwtAuthGuard)
   async createCategory(
     @Args('createCategoryInput', {type: () => CreateCategoryInput}) createCategoryInput: CreateCategoryInput
   ): Promise<Category> {
@@ -29,6 +31,7 @@ export class CategoryResolver {
   }
 
   @Mutation(() => Category)
+  @UseGuards(JwtAuthGuard)
   async updateCategory(
     @Args('updateCategory', {type: () => UpdateCategoryInput}) updateCategory: UpdateCategoryInput
   ): Promise<Category> {
@@ -36,6 +39,7 @@ export class CategoryResolver {
   }
 
   @Mutation(() => Category)
+  @UseGuards(JwtAuthGuard)
   async deleteCategory(
     @Args('id', {type: () => Int}) id: number,
   ): Promise<Category> {

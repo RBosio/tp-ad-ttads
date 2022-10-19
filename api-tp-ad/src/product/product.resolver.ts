@@ -1,5 +1,6 @@
-import { Inject } from '@nestjs/common';
+import { Inject, UseGuards } from '@nestjs/common';
 import { Resolver, Query, Args, Mutation, Int } from '@nestjs/graphql';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { CreateProductInput } from './dto/create-product-input';
 import { UpdateProductInput } from './dto/update-product-input';
 import { Product } from './product.entity';
@@ -22,6 +23,7 @@ export class ProductResolver {
   }
 
   @Mutation(() => Product)
+  @UseGuards(JwtAuthGuard)
   async createProduct(
     @Args('createProductInput', {type: () => CreateProductInput}) createProductInput: CreateProductInput
   ): Promise<Product> {
@@ -29,6 +31,7 @@ export class ProductResolver {
   }
   
   @Mutation(() => Product)
+  @UseGuards(JwtAuthGuard)
   async updateProduct(
     @Args('updateProductInput', {type: () => UpdateProductInput}) updateProductInput: UpdateProductInput
   ): Promise<Product> {
@@ -36,6 +39,7 @@ export class ProductResolver {
   }
   
   @Mutation(() => Product)
+  @UseGuards(JwtAuthGuard)
   async deleteProduct(
     @Args('id', {type: () => Int}) id: number
   ): Promise<Product> {

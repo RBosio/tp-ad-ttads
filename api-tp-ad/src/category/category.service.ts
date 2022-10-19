@@ -14,7 +14,7 @@ export class CategoryService {
   }
   
   async findOne(id: number): Promise<Category> {
-    return await this.categoryRepository.findOneOrFail({
+    return await this.categoryRepository.findOne({
       where: {
         id
       }

@@ -18,7 +18,7 @@ export class ProductService {
   }
   
   async findOne(id: number): Promise<Product> {
-    return await this.productRepository.findOneOrFail({
+    return await this.productRepository.findOne({
       relations: {
         category: true
       },
