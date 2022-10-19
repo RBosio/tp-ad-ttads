@@ -22,7 +22,7 @@ export class User {
   
   @Field(() => String)
   @Column({length: 100})
-  password!: string
+  password?: string
 
   @Field(() => Date)
   @CreateDateColumn()

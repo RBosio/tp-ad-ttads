@@ -10,7 +10,7 @@ export class ProductResolver {
   constructor(@Inject(ProductService) private productService: ProductService) {}
 
   @Query(() => [Product])
-  async getAllProducts(): Promise<Product[]> {
+  async getProducts(): Promise<Product[]> {
     return this.productService.findAll()
   }
   

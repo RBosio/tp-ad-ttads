@@ -22,10 +22,19 @@ export class UserService {
       }
     })
   }
+  
+  async findOneByEmail(email: string): Promise<User> {
+    return await this.userRepository.findOneOrFail({
+      where: {
+        email
+      }
+    })
+  }
 
   async create(createUserInput: CreateUserInput): Promise<User> {
     const saltRounds = 10
-    const hash = await bcrypt.hash(createUserInput.password, saltRounds)
+    const { password } = createUserInput
+    const hash = await bcrypt.hash(password, saltRounds)
 
     createUserInput.password = hash
 
