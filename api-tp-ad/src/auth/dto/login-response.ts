@@ -5,7 +5,4 @@ import { User } from "src/user/user.entity";
 export class LoginResponse {
   @Field(() => String)
   token!: string
-  
-  @Field(() => User)
-  user!: User
 }

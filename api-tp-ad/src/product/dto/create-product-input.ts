@@ -8,11 +8,9 @@ export class CreateProductInput {
   name?: string
 
   @Field(() => Float, {nullable: true})
-  @IsCurrency()
   price?: number
 
   @Field(() => Int, {nullable: true})
-  @IsAlpha()
   stock?: number
 
   @Field(() => Int, {nullable: true})
