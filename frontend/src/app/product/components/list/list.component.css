@@ -1,0 +1,21 @@
+.nav-item {
+  border-right: 1px solid #fff;
+}
+
+.nav-item:first-child {
+  border-left: 1px solid #fff;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  opacity: .6;
+}
+
+.navbar {
+  min-height: 50px;
+}
+
+.image {
+  object-position: center;
+  object-fit: cover;
+}

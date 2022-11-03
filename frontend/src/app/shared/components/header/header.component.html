@@ -1,0 +1,9 @@
+<nav>
+  <div class="flex">
+    <h1>My app</h1>
+    <ul class="options" *ngIf="usuario">
+      <li><p>{{usuario.name}} {{usuario.surname}}</p></li>
+      <li><a class="btn btn-danger p-2" (click)="logout()">Cerrar sesión</a></li>
+    </ul>
+  </div>
+</nav>

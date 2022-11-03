@@ -1,0 +1,31 @@
+<div class="container p-3">
+  <a class="btn btn-info" routerLink="../../">Back</a>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <div *ngIf="product">
+            <div class="row">
+              <div class="col-md-6">
+                <img [src]="BASE_URL+product.image" style="width: 100%;">
+              </div>
+              <div class="col-md-6">
+                <h4 class="card-title text-center">{{product.name}}</h4>
+                <div class="flex">
+                  <div>
+                    <p>Price: {{product.price | currency}}</p><br>
+                    <p>Stock: {{product.stock}}</p>
+                  </div>
+                  <div>
+                    <p>Category: {{product.category?.name}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

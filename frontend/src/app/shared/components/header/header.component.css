@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+ul {
+  display: flex;
+}
+
+li {
+  list-style: none;
+  user-select: none;
+  margin: auto;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+p {
+  margin: 0 15px;
+}
